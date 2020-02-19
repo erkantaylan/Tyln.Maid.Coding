@@ -8,7 +8,6 @@ using JetBrains.Annotations;
 
 namespace Tyln.Maid.Coding.Domain.Hotkey
 {
-    
     [UsedImplicitly]
     public class HotkeyRegistry : IHotkeyRegistry
     {
@@ -31,6 +30,13 @@ namespace Tyln.Maid.Coding.Domain.Hotkey
             Actions.ForEach(action => HotKeyManager.UnregisterHotKey(action.Id));
         }
 
+        public void Register(string name, Keys key, ModifierKeys modifiers, Func<Task> task)
+        {
+            int id = HotKeyManager.RegisterHotKey(key, modifiers);
+            var action = new HotkeyAction(name, id, task, key, modifiers);
+            Actions.Add(action);
+        }
+
         private void HotKeyManagerOnHotKeyPressed(object sender, HotKeyEventArgs e)
         {
             RunMachingTask(e.Key, e.Modifiers);
@@ -38,14 +44,13 @@ namespace Tyln.Maid.Coding.Domain.Hotkey
 
         private void RunMachingTask(Keys key, ModifierKeys modifiers)
         {
-            Actions.First(o => o.SameShortcut(key, modifiers)).Task.Invoke();
-        }
-
-        public void Register(string name, Keys key, ModifierKeys modifiers, Func<Task> task)
-        {
-            int id = HotKeyManager.RegisterHotKey(key, modifiers);
-            var action = new HotkeyAction(name, id, task, key, modifiers);
-            Actions.Add(action);
+            Func<Task> task = Actions.First(o => o.SameShortcut(key, modifiers)).Task;
+            Task invoke = task.Invoke();
+            //invoke.Wait();
+            if (invoke.Exception != null)
+            {
+                throw invoke.Exception;
+            }
         }
     }
 

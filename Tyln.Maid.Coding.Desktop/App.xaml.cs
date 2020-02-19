@@ -1,9 +1,8 @@
 ﻿using System.Windows;
 using AutoHotkey.Interop;
 using Prism.Ioc;
-using Prism.Mvvm;
-using Tyln.Maid.Coding.Desktop.ViewModels;
 using Tyln.Maid.Coding.Desktop.Views;
+using Tyln.Maid.Coding.Domain.Hotkey;
 
 namespace Tyln.Maid.Coding.Desktop
 {
@@ -13,20 +12,13 @@ namespace Tyln.Maid.Coding.Desktop
         protected override void RegisterTypes(IContainerRegistry container)
         {
             container.RegisterInstance(AutoHotkeyEngine.Instance);
+            container.Register<IHotkeyRegistry, HotkeyRegistry>();
         }
 
         /// <inheritdoc />
         protected override Window CreateShell()
         {
             return Container.Resolve<ShellWindow>();
-        }
-
-        /// <inheritdoc />
-        protected override void ConfigureViewModelLocator()
-        {
-            base.ConfigureViewModelLocator();
-
-            //ViewModelLocationProvider.Register<ShellWindow, ShellWindowViewModel>();
         }
     }
 }

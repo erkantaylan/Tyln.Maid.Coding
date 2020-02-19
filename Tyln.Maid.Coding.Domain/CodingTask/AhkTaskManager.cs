@@ -23,6 +23,9 @@ namespace Tyln.Maid.Coding.Domain.CodingTask
             registry.Register("volume_decrease", Keys.F11, ModifierKeys.Control, tasks.DecreaseVolume);
             registry.Register("volume_mute", Keys.F10, ModifierKeys.Control, tasks.Mute);
             registry.Register("media_play_pause", Keys.F9, ModifierKeys.Control, tasks.PlayPauseMedia);
+            registry.Register("prism_convert_auto_property", Keys.NumPad7, ModifierKeys.Control, tasks.ConvertToPrismProperty);
         }
+
+        public double Type { get; set; }
     }
 }

@@ -5,6 +5,7 @@ namespace Tyln.Maid.Coding.Desktop.Views
         public ShellWindow()
         {
             InitializeComponent();
+            
         }
     }
 }
