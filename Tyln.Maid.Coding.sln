@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoHotkey.Interop.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyln.Maid.Coding.Domain", "Tyln.Maid.Coding.Domain\Tyln.Maid.Coding.Domain.csproj", "{9A1B5F31-C203-4FFB-958A-F3DE32EBA67F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyln.Maid.ClockReminder", "Tyln.Maid.ClockReminder\Tyln.Maid.ClockReminder.csproj", "{74BF022C-7851-4227-A557-3702ECC39E7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{9A1B5F31-C203-4FFB-958A-F3DE32EBA67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A1B5F31-C203-4FFB-958A-F3DE32EBA67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A1B5F31-C203-4FFB-958A-F3DE32EBA67F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74BF022C-7851-4227-A557-3702ECC39E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BF022C-7851-4227-A557-3702ECC39E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BF022C-7851-4227-A557-3702ECC39E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BF022C-7851-4227-A557-3702ECC39E7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
